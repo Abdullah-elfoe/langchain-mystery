@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Document Forensics{% endblock %}
+
+
+{% block portion1_heading %} <h1>Document Forensics! </h1> {% endblock %}
+{% block portion1_content %}
+    <p>This is the Stage 2</p> 
+    Participants receive a multi-page dossier.Using LangChain with an LLM, teams must extract:
+    <ol>
+        <li>Who accessed system logs and finances</li>
+        <li>Who conducted unauthorized experiments</li>
+    </ol>
+    No embeddings or vector databases are allowed.
+    <form action="/document-forensics" method="post">
+        <div>Enter your Questions here separated by commas</div>
+        <input type="text" name="questions" >
+        <div>Choose text files</div>
+        <input type="file" name="document_files" id="document_files" multiple>
+        <button type="submit">Start</button>
+    </form>
+{% endblock %}
+
+{% block portion2_heading %} <h1>Answers</h1>{% endblock %}
+{% block portion2_content %} <textarea name="" id="">{{result}}</textarea> {% endblock %}
+

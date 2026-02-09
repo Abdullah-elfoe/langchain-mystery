@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Audio Intelligence{% endblock %}
+
+
+{% block portion1_heading %} <h1>Audio Intelligence Section! </h1> {% endblock %}
+{% block portion1_content %} 
+    <p>This is the stage 1</p>
+    <ul>
+        <li>Participants receive four audio files.</li>
+        <li>Using Speech-to-Text + LangChain,teams must extract answers to questions.</li>
+        <li>Answers are submitted through the portal.</li>
+    </ul>
+    <form action="/audio-intelligence" method="post">
+        <div>Enter your Questions here separated by commas</div>
+        <input type="text" name="questions" >
+        <div>Choose audio files</div>
+        <input type="file" name="audio_files" id="audio_files" multiple>
+        <button type="submit">Start</button>
+    </form>
+{% endblock %}
+
+{% block portion2_heading %} <h1>Answers</h1>{% endblock %}
+{% block portion2_content %} <textarea name="" id="">{{result}}</textarea> {% endblock %}
+

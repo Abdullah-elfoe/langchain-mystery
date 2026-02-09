@@ -1,0 +1,67 @@
+.hello {
+    color: blue;
+    font-size: 24px;
+}
+body {
+    background-color: #f0f0f0;
+    font-family: 'Courier New', monospace;
+    margin: 10px 20px;
+    background-color: black;
+    color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    align-items: center;
+    /* border: 1px solid red; */
+}
+
+nav .info {
+    width: 13%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav .functions {
+    width: 40%;
+    display: flex;
+    /* border: 1px solid red; */
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+}
+nav .functions a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+main {
+   
+    height: 80vh;
+    /* border: 1px solid red; */
+}
+
+main section {
+    height: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+main section .content {
+    width: 30%;
+    font-size: 17px;
+}
+main section .montent {
+    width: 30%;
+
+}
+
+main section .montent div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

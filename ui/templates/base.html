@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+    {% endblock %}
+</head>
+<body>
+    <nav>
+    <div class="info">
+        <div class="logo">Image</div>
+        <div class="name">Scousers</div>
+    </div>
+    <div class="functions">
+        <a href="/">Home</a>
+        <a href="/audio-intelligence">Audio Intelligence</a>
+        <a href="/document-forensics">Document Forensics</a>
+        <a href="/reasoning">Reasoning</a>
+
+    </div>
+</nav>
+<main>
+    <section>
+        <div class="content">
+            {% block portion1_heading %}{% endblock %}
+            <div></div>
+            {% block portion1_content %}{% endblock %}
+            <!-- <p>Discover the power of AI in solving mysteries with our cutting-edge Langchain Mystery Solver. Unleash the potential of language models to analyze clues, generate insights, and unravel complex cases. Whether you're a detective, researcher, or simply curious, our platform provides the tools you need to crack the code and solve mysteries like never before.</p> -->
+         
+
+        </div>
+        <div class="montent">
+            {% block portion2_heading %}{% endblock %}
+            <div></div>
+            {% block portion2_content %}{% endblock %}
+        </div>
+    </section>
+</main>
+    {% block content %}{% endblock %}
+</body>
+</html>
