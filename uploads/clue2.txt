@@ -1,0 +1,118 @@
+1. System Access Logs
+Date       Time     UserID    Action
+2026-02-01 09:02    A101      Login – Finance System
+2026-02-01 09:05    A102      Login – Lab Equipment
+2026-02-01 09:07    A101      Access – Payroll Report
+2026-02-01 09:15    A103      Login – Experiment Database
+2026-02-01 09:20    A102      Access – Experiment Protocols
+2026-02-01 09:30    A101      Logout – Finance System
+2026-02-01 10:00    A104      Login – Admin Console
+2026-02-01 10:05    A104      Access – System Configurations
+2026-02-01 10:10    A104      Logout – Admin Console
+
+2. Finance Records
+TransactionID   Date       UserID   Amount   Notes
+T001            2026-01-31 A101    $5,000   Payroll processed
+T002            2026-02-01 A101    $12,000  Transfer to offshore account
+T003            2026-02-01 A102    $200     Lab supply purchase
+T004            2026-02-01 A103    $150     Equipment maintenance
+
+3. Email Correspondence
+
+From: A102 (Lab Technician)
+To: A103 (Research Lead)
+Subject: Experiment Update
+Date: 2026-02-01 09:45
+
+The latest experiment results have anomalies. I need access to the restricted protocol files to verify the procedures. Can you grant temporary access?
+
+
+From: A104 (Admin)
+To: All Staff
+Subject: System Maintenance
+Date: 2026-02-01 09:50
+
+Reminder: System maintenance scheduled from 10:00 – 11:00. All access logs will be monitored.
+
+4. Lab Experiment Notes
+
+Experiment ID: EXP-07
+Lead Researcher: A103
+Notes:
+
+- Unauthorized chemical mixture attempted on 2026-02-01
+- Sample labels do not match official logs
+- Observation recorded by A102 at 09:25
+- Outcome: Unexpected reaction, minor damage to lab equipment
+
+5. Internal Memo
+
+From: Security Department
+To: All Department Heads
+Date: 2026-02-01
+
+We have detected unusual access patterns to finance and experimental systems. 
+Please review your department logs and report any anomalies immediately.
+
+1. System Access Logs
+Date       Time     UserID    Action
+2026-02-01 09:02    A101      Login – Finance System
+2026-02-01 09:05    A102      Login – Lab Equipment
+2026-02-01 09:07    A101      Access – Payroll Report
+2026-02-01 09:15    A103      Login – Experiment Database
+2026-02-01 09:20    A102      Access – Experiment Protocols
+2026-02-01 09:30    A101      Logout – Finance System
+2026-02-01 10:00    A104      Login – Admin Console
+2026-02-01 10:05    A104      Access – System Configurations
+2026-02-01 10:10    A104      Logout – Admin Console
+
+2. Finance Records
+TransactionID   Date       UserID   Amount   Notes\
+T001            2026-01-31 A101    $5,000   Payroll processed
+T002            2026-02-01 A101    $12,000  Transfer to offshore account
+T003            2026-02-01 A102    $200     Lab supply purchase
+T004            2026-02-01 A103    $150     Equipment maintenance
+
+3. Email Correspondence
+
+From: A102 (Lab Technician)\nTo: A103 (Research Lead)\nSubject: Experiment Update\nDa
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+familiarity

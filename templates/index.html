@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document Analyzer</title>
+</head>
+<body>
+
+    <h1>Upload Document</h1>
+
+    <form action="/analyze/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <input type="text" name="questions" id="questions" placeholder="Enter questions separated by commas" required>
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if result %}
+        <h2>Result:</h2>
+        <p>{{ result }}</p>
+    {% endif %}
+
+</body>
+</html>
