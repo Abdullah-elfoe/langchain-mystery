@@ -1,6 +1,7 @@
 from .stage_1.audio import transcribe_audio
 from .stage_2.document import convert_to_txt
 from Engine import ScanText, break_into_chunks
+from ignore.apikey import key, model, base_url
 
 
 def audio_intelligence_pipeline(audio_file_paths, questions):
@@ -16,7 +17,9 @@ def audio_intelligence_pipeline(audio_file_paths, questions):
     for audio in transcribed_audios:
         answer += ScanText(
             audio, 
-            api_key="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",
+            api_key=key,
+            model_name=model,
+            base_url=base_url,
             questions=questions
             )
     
@@ -36,7 +39,9 @@ def document_forensics_pipeline(document_file_paths, questions):
     for document in converted_documents:
         answer += ScanText(
             document, 
-            api_key="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",
+            api_key=key,
+            model_name=model,
+            base_url=base_url,
             questions=questions
             )
     # answer = ScanText(converted_document, api_key=None)
