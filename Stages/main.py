@@ -23,13 +23,21 @@ def audio_intelligence_pipeline(audio_file_paths, questions):
     return answer
 
 
-def document_forensics_pipeline(document_file_paths):
+def document_forensics_pipeline(document_file_paths, questions):
     """
     Complete pipeline to convert documents to text and analyze them
     """
     converted_documents = []
+    answer = ""
     for path in document_file_paths:
         converted_document = convert_to_txt(path)
         converted_documents.append(f"Document file {path} converted to text as: {converted_document}\n---------------------------\n")
+
+    for document in converted_documents:
+        answer += ScanText(
+            document, 
+            api_key="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",
+            questions=questions
+            )
     # answer = ScanText(converted_document, api_key=None)
-    return converted_documents
+    return answer

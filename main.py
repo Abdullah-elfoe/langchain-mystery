@@ -4,7 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from Stages.main import audio_intelligence_pipeline
 from Stages.main import document_forensics_pipeline
-
+from Stages.stage_2.document import INPUT_DIR
 
 app = FastAPI()
 
@@ -63,9 +63,10 @@ async def audio_intelligence_post(request:Request):
 async def document_forensics_post(request:Request):
     form_data = await request.form()
     document_files = form_data.getlist('document_files')
+    questions = form_data.getlist('questions')
     
     # Process the document files using the document forensics pipeline
-    result = document_forensics_pipeline([f"Resources/{file}" for file in document_files])
+    result = document_forensics_pipeline([f"{INPUT_DIR}/{file}" for file in document_files], questions)
     result = "".join(result)
     return templates.TemplateResponse(
         "document-forensics.html", {"request": request, "result": result}
