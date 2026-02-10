@@ -4,8 +4,18 @@
 
 
 {% block portion1_heading %} <h1>Reasoning! </h1> {% endblock %}
-{% block portion1_content %} files will be uploaded here{% endblock %}
+{% block portion1_content %} 
+<p>Here comes the final resolution file</p>
+Participants receive additional documents and using a LangChain reasoning chain, teams must determine the murderer.
+ <form action="/reasoning" method="post">
+        <div>Enter your Questions here separated by commas</div>
+        <input type="text" name="questions" >
+        <div>Choose text files</div>
+        <input type="file" name="additonal_files" id="document_files" multiple>
+        <button type="submit">Start</button>
+    </form>
+{% endblock %}
 
 {% block portion2_heading %} <h1>Answers</h1>{% endblock %}
-{% block portion2_content %} <textarea name="" id=""></textarea> {% endblock %}
+{% block portion2_content %} <textarea name="" id="">{{result}}</textarea> {% endblock %}
 

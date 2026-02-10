@@ -1,8 +1,16 @@
 from .stage_1.audio import transcribe_audio
 from .stage_2.document import convert_to_txt
-from Engine import ScanText, break_into_chunks
+from Engine import ScanText, getThinking
 from ignore.apikey import key, model, base_url
 
+
+audios_thinking = []
+documents_thinking = []
+contexts = {
+    "audios": None,
+    "documents": None,
+    "final_reasoning": None
+}
 
 def audio_intelligence_pipeline(audio_file_paths, questions):
     """
@@ -22,6 +30,8 @@ def audio_intelligence_pipeline(audio_file_paths, questions):
             base_url=base_url,
             questions=questions
             )
+    audios_thinking.append(questions)
+    audios_thinking.append(answer)
     
     return answer
 
@@ -44,5 +54,46 @@ def document_forensics_pipeline(document_file_paths, questions):
             base_url=base_url,
             questions=questions
             )
+    documents_thinking.append(questions)
+    documents_thinking.append(answer)
+        
     # answer = ScanText(converted_document, api_key=None)
     return answer
+
+def reasoning_pipeline(questions, document_file_paths=[]):
+    """
+    Pipeline to answer reasoning questions without any input documents or audio
+
+    """
+    contexts["audios"] = getThinking(api_key=key, model_name=model, base_url=base_url, content=audios_thinking) if audios_thinking else None
+    contexts["documents"] = getThinking(api_key=key, model_name=model, base_url=base_url, content=documents_thinking)  if documents_thinking else None
+        
+    answer = document_forensics_pipeline(document_file_paths, questions)
+    contexts["final_reasoning"] = getThinking(api_key=key, model_name=model, base_url=base_url, content=[questions, answer]) if audios_thinking else None
+
+    print(contexts)
+
+    return answer
+
+    # answer = ScanText(
+    #     "", 
+    #     api_key=key,
+    #     model_name=model,
+    #     base_url=base_url,
+    #     questions=questions
+    #     )
+    # return answer
+
+
+def main():
+    answer = audio_intelligence_pipeline(["Resources/audio.wav"], ["What is being discussed in these audios?"])
+    print("Audio Intelligence Pipeline Answer:")
+    print(answer)
+    print(audios_thinking, documents_thinking)
+    print(contexts)
+    reasoning_pipeline(None, None)
+    print("Reasoning Pipeline Answer:")
+    print(contexts)
+
+
+# main()

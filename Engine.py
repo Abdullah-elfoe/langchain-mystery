@@ -11,6 +11,27 @@ def break_into_chunks(text, chunk_size=1000):
     """Split text into chunks of roughly chunk_size characters."""
     return [text[i:i+chunk_size] for i in range(0, len(text), chunk_size)]
 
+def getThinking(api_key, model_name, base_url, content):
+    client = OpenAI(
+        base_url=base_url,
+        api_key=api_key
+    )
+    messages = [{
+        "role": "user",
+        "content": 
+            "You are detective who anlyzes the clues, that are in the from of questions and answers. You will be given a questios and answers. So you would have to give the reasoning and detail "
+    }]
+    messages.append({
+        "role": "user",
+        "content": f"questions: {content[0]}\nanswers: {content[1]}"
+    })
+    response = client.chat.completions.create(
+            model=model_name,
+            messages=messages,
+            max_tokens=8192)
+    
+    assistant_msg = response.choices[0].message
+    return assistant_msg.content
 
 
 def ScanText(text, api_key, model_name, base_url, questions):
