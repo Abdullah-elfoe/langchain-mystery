@@ -44,6 +44,7 @@ def reasoning(request:Request):
 async def audio_intelligence_post(request:Request):
     form_data = await request.form()
     audio_files = form_data.getlist('audio_files')
+    questions = form_data.getlist('questions')
     if audio_files is not None:
         result = True
     else:
@@ -51,7 +52,7 @@ async def audio_intelligence_post(request:Request):
         result = False
     
     # Process the audio files using the audio intelligence pipeline
-    result = audio_intelligence_pipeline([f"Resources/{file}" for file in audio_files])
+    result = audio_intelligence_pipeline([f"Resources/{file}" for file in audio_files], questions)
     result = "".join(result)
     return templates.TemplateResponse(
         "audio-intelligence.html", {"request": request, "result": result}
@@ -62,6 +63,7 @@ async def audio_intelligence_post(request:Request):
 async def document_forensics_post(request:Request):
     form_data = await request.form()
     document_files = form_data.getlist('document_files')
+    
     # Process the document files using the document forensics pipeline
     result = document_forensics_pipeline([f"Resources/{file}" for file in document_files])
     result = "".join(result)

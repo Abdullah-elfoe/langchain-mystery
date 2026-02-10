@@ -1,18 +1,26 @@
 from .stage_1.audio import transcribe_audio
 from .stage_2.document import convert_to_txt
-from Engine import ScanText
+from Engine import ScanText, break_into_chunks
 
 
-def audio_intelligence_pipeline(audio_file_paths):
+def audio_intelligence_pipeline(audio_file_paths, questions):
     """
     Complete pipeline to transcribe audio and convert documents to text
     """
     transcribed_audios = []
+    answer = ""
     for path in audio_file_paths:
         transcribed_audio = transcribe_audio(path)
         transcribed_audios.append(f"Audio file {path} transcribed as: {transcribed_audio}\n---------------------------\n")
     # answer = ScanText(transcribed_audio, api_key=None)
-    return transcribed_audios
+    for audio in transcribed_audios:
+        answer += ScanText(
+            audio, 
+            api_key="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",
+            questions=questions
+            )
+    
+    return answer
 
 
 def document_forensics_pipeline(document_file_paths):
